@@ -1,30 +1,49 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33213.308
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.vcxproj", "{716DCB4A-4085-4227-B9DA-017B550788F5}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{716DCB4A-4085-4227-B9DA-017B550788F5}.Debug|x64.ActiveCfg = Debug|x64
-		{716DCB4A-4085-4227-B9DA-017B550788F5}.Debug|x64.Build.0 = Debug|x64
-		{716DCB4A-4085-4227-B9DA-017B550788F5}.Debug|x86.ActiveCfg = Debug|Win32
-		{716DCB4A-4085-4227-B9DA-017B550788F5}.Debug|x86.Build.0 = Debug|Win32
-		{716DCB4A-4085-4227-B9DA-017B550788F5}.Release|x64.ActiveCfg = Release|x64
-		{716DCB4A-4085-4227-B9DA-017B550788F5}.Release|x64.Build.0 = Release|x64
-		{716DCB4A-4085-4227-B9DA-017B550788F5}.Release|x86.ActiveCfg = Release|Win32
-		{716DCB4A-4085-4227-B9DA-017B550788F5}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
+#include <iostream>
+#include <windows.h>
+using namespace std;
+
+
+int main()
+{
+        int h, m, s, a, err;
+        err = a = 0;
+        while(err == 0)
+        {
+            cout << "Enter hour : " << endl;
+            cin >> h;
+            cout << "Enter minutes : " << endl;
+            cin >> m;
+            cout << "Enter seconds : " << endl;
+            cin >> s;
+
+            if(h < 24 && m < 60 && s < 60)
+                err++;
+            else
+                system("cls");
+        }
+        while(a == 0)
+        {
+            system("cls");
+            cout << h << ":" << m << ":" << s << endl;
+            Sleep(1000);
+            s++;
+            if(s > 59)
+            {
+                s = 0;
+                m++;
+            }
+            if(m > 59)
+            {
+                m = 0;
+                h++;
+            }
+            if(h > 24)
+            {
+                h = 0;
+            }
+        }
+}
+
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34F6702D-E816-4416-8CF1-1A5E69B89F34}
 	EndGlobalSection
